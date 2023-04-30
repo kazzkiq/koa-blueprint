@@ -10,7 +10,7 @@
     "check": "tsc --traceResolution",
     "fmt": "eslint src/ --fix",
     "swagger:generate": "node build/src/swagger.js",
-    "test": "tsc --outDir .test/ && tsc-alias --outDir .test/ && run-p -r test:server test:run && npm run test:clean",
+    "test": "tsc --outDir .test/ && tsc-alias --outDir .test/ && run-p -r test:server test:run; npm run test:clean",
     "test:server": "TZ='UTC' node .test/src/server.js",
     "test:run": "uvu -r tsm tests",
     "test:clean": "del .test"
