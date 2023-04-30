@@ -1,6 +1,6 @@
 {
-  "name": "koa-blueprint",
-  "version": "1.0.1",
+  "name": "koalla-scaffold",
+  "version": "0.1.0",
   "description": "Basic Koa blueprint for modern backends.",
   "main": "index.js",
   "scripts": {
