@@ -4,14 +4,16 @@
   "description": "Basic Koa blueprint for modern backends.",
   "main": "index.js",
   "scripts": {
-    "build": "tsc --build && tsc-alias && npm run swagger-autogen",
+    "build": "tsc --build && tsc-alias && npm run swagger:generate",
     "start": "TZ='UTC' node build/server.js",
     "dev": "TZ='UTC' ts-node-dev --exit-child -r tsconfig-paths/register src/server.ts",
     "check": "tsc --traceResolution",
-    "test": "npm run build && run-p -r start run-tests",
-    "run-tests": "uvu -r tsm tests",
     "fmt": "eslint src/ --fix",
-    "swagger-autogen": "node build/src/swagger.js"
+    "swagger:generate": "node build/src/swagger.js",
+    "test": "tsc --outDir .test/ && tsc-alias --outDir .test/ && run-p -r test:server test:run && npm run test:clean",
+    "test:server": "TZ='UTC' node .test/src/server.js",
+    "test:run": "uvu -r tsm tests",
+    "test:clean": "del .test"
   },
   "repository": {
     "type": "git",
@@ -38,7 +40,7 @@
     "swagger-autogen": "^2.23.1",
     "ts-node": "^10.9.1",
     "tsm": "^2.3.0",
-    "typescript": "^4.9.5",
+    "typescript": "^5.0.4",
     "uvu": "^0.5.6"
   },
   "devDependencies": {
@@ -48,6 +50,7 @@
     "@types/koa-bodyparser": "^4.3.10",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
+    "del-cli": "^5.0.0",
     "eslint": "^8.39.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
