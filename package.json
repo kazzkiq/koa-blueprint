@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kazzkiq/koa-blueprint.git"
+    "url": "git+https://github.com/kazzkiq/koalla.git"
   },
   "keywords": [
     "koa",
@@ -27,9 +27,9 @@
   "author": "Claudio Holanda Jr.",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kazzkiq/koa-blueprint/issues"
+    "url": "https://github.com/kazzkiq/koalla/issues"
   },
-  "homepage": "https://github.com/kazzkiq/koa-blueprint#readme",
+  "homepage": "https://github.com/kazzkiq/koalla#readme",
   "dependencies": {
     "@koa/cors": "^4.0.0",
     "@koa/router": "^12.0.0",
