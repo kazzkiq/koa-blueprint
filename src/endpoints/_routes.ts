@@ -1,10 +1,10 @@
 import Router from "@koa/router";
-import status from "./status";
+import apiStatus from "./api-status";
 
 const routes = new Router();
 
 routes
   // All routes go here.
-  .use(status);
+  .use(apiStatus);
 
 export default routes.routes();

@@ -3,12 +3,14 @@ import cors from "@koa/cors";
 import Koa from "koa";
 import bodyParser from "koa-bodyparser";
 import { config } from "@/config";
-import routes from "@/routes/_routes";
+import routes from "@/endpoints/_routes";
 import cluster from "node:cluster";
 import { cpus } from "node:os";
 import process from "node:process";
+import { koaSwagger } from "koa2-swagger-ui";
 import MiddlewareNotFound from "./middlewares/not-found";
 import Environment from "./commons/environment";
+import swagger_output from "./swagger_output.json";
 
 const numCPUs = cpus().length;
 const CPUsToUse = (() => {
@@ -32,6 +34,16 @@ function runServer() {
       })
     )
     .use(cors())
+
+    .use(
+      koaSwagger({
+        routePrefix: "/docs",
+        swaggerOptions: {
+          // url: "http://petstore.swagger.io/v2/swagger.json", // example path to json
+          spec: swagger_output as any,
+        },
+      })
+    )
 
     .use(routes)
 
