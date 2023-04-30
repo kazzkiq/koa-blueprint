@@ -1,5 +1,5 @@
 import Router from "@koa/router";
-import apiStatus from "./api-status";
+import apiStatus from "@/routes/api-status";
 
 const routes = new Router();
 

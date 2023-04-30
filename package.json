@@ -4,14 +4,14 @@
   "description": "Basic Koa blueprint for modern backends.",
   "main": "index.js",
   "scripts": {
-    "build": "ttsc --build && tsc-alias",
+    "build": "tsc --build && tsc-alias && npm run swagger-autogen",
     "start": "TZ='UTC' node build/server.js",
     "dev": "TZ='UTC' ts-node-dev --exit-child -r tsconfig-paths/register src/server.ts",
-    "check": "ttsc --traceResolution",
+    "check": "tsc --traceResolution",
     "test": "npm run build && run-p -r start run-tests",
     "run-tests": "uvu -r tsm tests",
     "fmt": "eslint src/ --fix",
-    "swagger-autogen": "npm run build && node build/swagger.js"
+    "swagger-autogen": "node build/src/swagger.js"
   },
   "repository": {
     "type": "git",

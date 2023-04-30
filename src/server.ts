@@ -3,7 +3,7 @@ import cors from "@koa/cors";
 import Koa from "koa";
 import bodyParser from "koa-bodyparser";
 import { config } from "@/config";
-import routes from "@/endpoints/_routes";
+import routes from "@/routes/_routes";
 import cluster from "node:cluster";
 import { cpus } from "node:os";
 import process from "node:process";
