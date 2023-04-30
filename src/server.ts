@@ -43,7 +43,7 @@ function runServer() {
     if (Environment.notProduction) {
       console.log(`
 
-    API Live on: http://localhost:${config.PORT}
+    API is live: http://localhost:${config.PORT}
 
     `);
     }
@@ -53,14 +53,14 @@ function runServer() {
 if (process.env.NODE_ENV === "test") {
   runServer();
 } else if (cluster.isPrimary) {
-  console.log(`Iniciando Cluster, número de Workers: ${CPUsToUse}`);
+  console.log(`Starting Cluster, workers: ${CPUsToUse}`);
 
   for (let i = 0; i < CPUsToUse; i++) {
     cluster.fork();
   }
 
   cluster.on("exit", (worker: any) => {
-    console.log(`Worker ${worker.process.pid} died`);
+    console.log(`Worker ${worker.process.pid} died.`);
   });
 } else {
   runServer();
