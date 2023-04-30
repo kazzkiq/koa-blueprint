@@ -5,7 +5,7 @@
   <br>
   A kickstarter for your next API project.
 </p>
-<br><br><br><br>
+<br><br>
 
 ## What is Koalla?
 
