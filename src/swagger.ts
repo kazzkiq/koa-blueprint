@@ -17,7 +17,7 @@ const doc = {
 };
 
 const outputFile = "./swagger_output.json";
-const endpointsFiles = fs.readdirSync(`./routes`)
-.map((file: string) => path.join(`./routes`, file.replace(".ts", ".js")));
+const endpointsFiles = fs.readdirSync(`./src/routes`)
+.map((file: string) => path.join(`./src/routes`, file.replace(".ts", ".js")));
 
 swaggerAutogen(outputFile, endpointsFiles, doc);
