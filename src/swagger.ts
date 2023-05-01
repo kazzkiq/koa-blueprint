@@ -1,4 +1,7 @@
 import swaggerAutogen from "swagger-autogen";
+import fs from 'fs';
+import path from 'path';
+
 import { config } from "./config";
 import { version } from "../package.json";
 
@@ -14,6 +17,7 @@ const doc = {
 };
 
 const outputFile = "./swagger_output.json";
-const endpointsFiles = ["./routes/api-status.js"];
+const endpointsFiles = fs.readdirSync(`./routes`)
+.map((file: string) => path.join(`./routes`, file.replace(".ts", ".js")));
 
 swaggerAutogen(outputFile, endpointsFiles, doc);
